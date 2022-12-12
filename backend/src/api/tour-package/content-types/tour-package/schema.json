@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tour_packages",
+  "info": {
+    "singularName": "tour-package",
+    "pluralName": "tour-packages",
+    "displayName": "Tour package",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Group": {
+      "type": "integer"
+    },
+    "Altitude": {
+      "type": "biginteger"
+    },
+    "Difficulty": {
+      "type": "enumeration",
+      "enum": [
+        "Easy",
+        "Medium ",
+        "Hard"
+      ],
+      "required": true
+    },
+    "Location": {
+      "type": "string",
+      "required": true
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    }
+  }
+}
