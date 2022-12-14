@@ -1,10 +1,11 @@
-import Banner from "./components/Banner";
+import FeatureDestination from './components/DestinationSection/FeatureDestination';
+import Banner from './components/HeroSection/HeroBanner';
 
 function App() {
   return (
     <div className="App">
-     <Banner/>
-
+      <Banner />
+      <FeatureDestination />
     </div>
   );
 }
