@@ -1,12 +1,20 @@
-import FeatureDestination from './components/DestinationSection/FeatureDestination';
-import Banner from './components/HeroSection/HeroBanner';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Notfound from './pages/Notfound';
+import Detail from './pages/TourDetail/Detail';
 
 function App() {
   return (
-    <div className="App">
-      <Banner />
-      <FeatureDestination />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tour/:Slug" element={<Detail />} />
+          <Route path="*" element={<Notfound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
