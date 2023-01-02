@@ -14,7 +14,7 @@ const Card = () => {
         return res.data;
       });
   });
-  console.log(tour);
+  // console.log(tour);
   return (
     <div className="card flex flex-col md:flex-row md:justify-between items-center">
       {tour?.data.map((item, key) => (

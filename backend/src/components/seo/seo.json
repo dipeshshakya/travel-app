@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_seo_seos",
+  "info": {
+    "displayName": "Seo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  }
+}
