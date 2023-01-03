@@ -1,19 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import { getAllTour } from '../../api/getAllTour';
+
 const Card = () => {
-  const { data: tour } = useQuery('tour', () => {
-    return axios
-      .get('http://localhost:1337/api/tour-packages/?populate=*', {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-        },
-      })
-      .then((res) => {
-        return res.data;
-      });
-  });
+  const { data: tour } = useQuery('tour', getAllTour);
   // console.log(tour);
   return (
     <div className="card flex flex-col md:flex-row md:justify-between items-center">

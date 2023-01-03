@@ -1,24 +1,11 @@
-import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
+import { getSingleTour } from '../../api/getSingleTour';
 const Detail = () => {
   const { Slug } = useParams();
-  const { data } = useQuery('singleTour', () => {
-    return axios
-      .get(
-        `http://localhost:1337/api/tour-packages/?filters[slug][$eq]=${Slug}&populate=*`,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-          },
-        }
-      )
-      .then((res) => {
-        return res.data.data[0].attributes;
-      });
-  });
-  // console.log(data.Title);
+  const { data } = useQuery(['singleTour', Slug], () => getSingleTour(Slug));
+  // console.log(data);
 
   return (
     <>

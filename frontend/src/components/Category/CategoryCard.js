@@ -1,22 +1,12 @@
-import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useQuery } from 'react-query';
+import { getAllCategory } from '../../api/getAllCategory';
 
 const CategoryCard = () => {
-  const { data: categories } = useQuery('category', () => {
-    return axios
-      .get('http://localhost:1337/api/categories', {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-        },
-      })
-      .then((res) => {
-        return res.data;
-      });
-  });
-  console.log(categories);
+  const { data: categories } = useQuery('category', getAllCategory);
+  // console.log(categories);
   return (
     <>
       <div className="container flex justify-center items-center clear-both mx-auto md:px-20">
