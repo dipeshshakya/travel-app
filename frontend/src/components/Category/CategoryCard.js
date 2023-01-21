@@ -6,7 +6,6 @@ import { getAllCategory } from '../../api/getAllCategory';
 
 const CategoryCard = () => {
   const { data: categories } = useQuery('category', getAllCategory);
-  // console.log(categories);
   return (
     <>
       <div className="container flex justify-center items-center clear-both mx-auto md:px-20">
