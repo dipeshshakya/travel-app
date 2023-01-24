@@ -1,22 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { getSingleCategory } from '../../api/getSingleCategory';
-import CategorypageContext from '../../contextApi/CategorypageContext';
+import { useFilterContext } from '../../contextApi/CategorypageContext';
 import CategoryPageLayout from '../../Layout/CategoryPageLayout';
 
 const ListTourByCategory = () => {
-  const { tour, setTours } = useContext(CategorypageContext);
+  const { all_tours, tourByCategory } = useFilterContext();
   const { Slug } = useParams();
+  useEffect(() => {
+    const fetchtour = getSingleCategory(Slug);
+    console.log(fetchtour);
+    // tourByCategory(fetchtour);
+  }, [Slug]);
 
-  const fetchtour = useMemo(() => getSingleCategory(Slug), [Slug]);
-  console.log(fetchtour);
-  setTours(fetchtour);
   return (
     <CategoryPageLayout>
       <div className="card flex flex-col md:flex-row md:justify-between items-center">
-        {tour?.map((item, key) => (
+        {all_tours?.map((item, key) => (
           <Link to={`/tour/${item.attributes.Slug}`}>
             <div className="item my-2 md:mx-2" id={++key}>
               <img
