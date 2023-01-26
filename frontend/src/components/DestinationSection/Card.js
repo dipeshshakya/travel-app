@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { useFilterContext } from '../../FilterProvider';
 const Card = () => {
-  const { data: tour } = useFilterContext();
+  const { data } = useFilterContext();
+  // console.log(data);
 
   return (
     <div className="card flex flex-col md:flex-row md:justify-between items-center">
-      {tour?.data.map((item, key) => (
-        <Link to={`/tour/${item.attributes.Slug}`}>
-          <div className="item my-2 md:mx-2" id={++key}>
+      {data?.data?.map((item, i) => (
+        <Link to={`/tour/${item.attributes.Slug}`} key={i}>
+          <div className="item my-2 md:mx-2">
             <img
               src={
                 process.env.REACT_APP_API_URL +

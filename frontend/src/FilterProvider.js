@@ -12,18 +12,10 @@ const FilterProvider = ({ children }) => {
     setData(data);
   };
 
-  const { data: tour } = useQuery('tour', getAllTour, { onSuccess: onSuccess });
-  console.log(tour);
-
-  const onChangeLocation = () => {
-    console.log('first');
-  };
-  const onChangePrice = () => {
-    console.log('second');
-  };
-  const onChangeGroupSize = () => {
-    console.log('third');
-  };
+  // eslint-disable-next-line no-unused-vars
+  const { data: tour, isLoading } = useQuery('tour', getAllTour, {
+    onSuccess: onSuccess,
+  });
 
   return (
     <>
@@ -33,9 +25,6 @@ const FilterProvider = ({ children }) => {
           setData,
           filterData,
           setFilterData,
-          onChangeLocation,
-          onChangePrice,
-          onChangeGroupSize,
         }}
       >
         {children}
