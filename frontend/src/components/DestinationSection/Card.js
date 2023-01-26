@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { getAllTour } from '../../api/getAllTour';
 
+import { useFilterContext } from '../../FilterProvider';
 const Card = () => {
-  const { data: tour } = useQuery('tour', getAllTour);
-  // console.log(tour);
+  const { data: tour } = useFilterContext();
+
   return (
     <div className="card flex flex-col md:flex-row md:justify-between items-center">
       {tour?.data.map((item, key) => (
