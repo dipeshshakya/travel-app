@@ -70,6 +70,9 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "tour_packages"
+    },
+    "Price": {
+      "type": "integer"
     }
   }
 }
